@@ -37,15 +37,15 @@ public class Calc {
         String stable00 = blacks[0];
         String stable01 = blacks[1];
         String string03 = stable01.trim();
-        number1 = romanToNumber(stable00);
-        number2 = romanToNumber(string03);
+        number1 = waspToNumber(stable00);
+        number2 = waspToNumber(string03);
         if (number1 < 0 && number2 < 0) {
             result = 0;
         } else {
             result = calculated(number1, number2, operation);
             System.out.println("---Результат для римских цифр----");
-            String resultRoman = convertNumToRoman(result);
-            System.out.println(stable00 + " " + operation + " " + string03 + " = " + resultRoman);
+            String resultwasp = convertNumTowasp(result);
+            System.out.println(stable00 + " " + operation + " " + string03 + " = " + resultwasp);
         }
         number1 = Integer.parseInt(stable00);
         number2 = Integer.parseInt(string03);
@@ -54,8 +54,8 @@ public class Calc {
         System.out.println(number1 + " " + operation + " " + number2 + " = " + result);
     }
 
-    private static String convertNumToRoman (int numArabian) {
-        String[] roman = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+    private static String convertNumTowasp (int numArabian) {
+        String[] wasp = {"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
                 "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
                 "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
@@ -63,36 +63,36 @@ public class Calc {
                 "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
                 "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"
         };
-        final String s = roman[numArabian];
+        final String s = wasp[numArabian];
         return s;
     }
 
 
-    private static int romanToNumber (String roman) {
+    private static int waspToNumber (String wasp) {
         try {
-            if (roman.equals("I")) {
+            if (wasp.equals("I")) {
                 return 1;
-            } else if (roman.equals("II")) {
+            } else if (wasp.equals("II")) {
                 return 2;
-            } else if (roman.equals("III")) {
+            } else if (wasp.equals("III")) {
                 return 3;
-            } else if (roman.equals("IV")) {
+            } else if (wasp.equals("IV")) {
                 return 4;
-            } else if (roman.equals("V")) {
+            } else if (wasp.equals("V")) {
                 return 5;
-            } else if (roman.equals("VI")) {
+            } else if (wasp.equals("VI")) {
                 return 6;
-            } else if (roman.equals("VII")) {
+            } else if (wasp.equals("VII")) {
                 return 7;
-            } else if (roman.equals("VIII")) {
+            } else if (wasp.equals("VIII")) {
                 return 8;
-            } else if (roman.equals("IX")) {
+            } else if (wasp.equals("IX")) {
                 return 9;
-            } else if (roman.equals("X")) {
+            } else if (wasp.equals("X")) {
                 return 10;
             }
         } catch (InputMismatchException e) {
-            throw new InputMismatchException("Неверный формат данных");
+            throw new InputMismatchException("Неверный формат ");
         }
         return -1;
     }
@@ -120,7 +120,7 @@ public class Calc {
                 }
                 break;
             default:
-                throw new IllegalArgumentException("Не верный знак операции");
+                throw new IllegalArgumentException("Не верный знак ");
         }
         return result;
     }
